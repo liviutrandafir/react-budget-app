@@ -1,0 +1,15 @@
+// 1. Basics
+
+@import "variables";
+@import "mixins";
+
+.form-control {
+  border: 2px solid #eef3fa;
+  border-radius: 5px;
+  padding: 15px 20px;
+
+  &:focus {
+    border: 2px solid #eef3fa;
+    box-shadow: none;
+  }
+}

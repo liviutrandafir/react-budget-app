@@ -1,0 +1,24 @@
+@mixin googleFont($font) {
+  $fontFamily: map-get($font, "name");
+  $folderName: map-get($font, "folder");
+  $fileName: map-get($font, "files");
+  $weights: map-get($font, "weights");
+  @each $weight in $weights {
+    $weightName: map-get($fontWeightNames, $weight);
+    @font-face {
+      font-family: "#{$fontFamily}";
+      font-weight: $weight;
+      font-display: swap;
+      src: url("../../assets/fonts/#{$folderName}/#{$fileName}-#{$weightName}.eot"); /* IE 9 - 11 */
+      src: url("../../assets/fonts/#{$folderName}/#{$fileName}-#{$weightName}.eot?#iefix") format('embedded-opentype'), /* IE 9 - 11 */
+      url("../../assets/fonts/#{$folderName}/#{$fileName}-#{$weightName}.woff2") format('woff2'),
+      url("../../assets/fonts/#{$folderName}/#{$fileName}-#{$weightName}.woff") format('woff');
+    }
+  }
+}
+
+@mixin googleFonts($fonts) {
+  @each $name, $font in $fonts {
+    @include googleFont($font);
+  }
+}

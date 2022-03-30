@@ -1,0 +1,9 @@
+@import "../../assets/styles/main";
+
+.new-expense {
+  padding: $standard-padding;
+  margin: 2rem auto;
+  border-radius: $main-border-radius;
+  background-color: $light;
+  border: 2px solid $light-border;
+}
