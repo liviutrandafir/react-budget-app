@@ -1,8 +1,9 @@
 import "./Expenses.scss"
-import ExpenseItem from "./ExpenseItem";
 import CustomCard from "../UI/CustomCard";
 import {useState} from "react";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
     const expenses = props.expenses;
@@ -11,7 +12,6 @@ function Expenses(props) {
 
     const filterChangeHandler = (selectedYear) => {
         setFilteredYear(selectedYear);
-        console.log(filteredYear);
     }
 
     const filteredExpenses = expenses.filter((expense) => {
@@ -21,16 +21,8 @@ function Expenses(props) {
     return (
         <CustomCard className="expenses">
             <ExpenseFilter selected={filteredYear} onChangeYear={filterChangeHandler} />
-            {filteredExpenses.length === 0 && <p>No Expenses found.</p>}
-            {filteredExpenses.length > 0 &&
-                filteredExpenses.map((expense) => (
-                <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date}
-                />
-            ))}
+            <ExpensesChart expenses={filteredExpenses} />
+            <ExpensesList filteredExpenses={filteredExpenses} />
         </CustomCard>
     )
 }

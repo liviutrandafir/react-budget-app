@@ -1,0 +1,11 @@
+@import "../../assets/styles/main";
+
+.chart {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: $white;
+  text-align: center;
+  display: flex;
+  height: 10rem;
+  gap: 20px;
+}

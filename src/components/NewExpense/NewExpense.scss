@@ -6,4 +6,13 @@
   border-radius: $main-border-radius;
   background-color: $light;
   border: 2px solid $light-border;
+
+  .new-expense-button {
+    display: flex;
+
+    button {
+      flex: 1;
+      background-color: $white;
+    }
+  }
 }
